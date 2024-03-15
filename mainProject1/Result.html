@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <title>
+            TuneAlignerResultPage
+        </title>
+        <script src="https://cdn.jsdelivr.net/npm/meyda@4.1.0/dist/browser/meyda.min.js"></script>
+        <script src="eval.js"></script>
+    </head>
+<body>
+    <h1>Recieved value</h1>
+    <div id="pp"></div>
+    <script>
+        // Parse the query parameter to get the value
+        const urlParams = new URLSearchParams(window.location.search);
+        const audioDataUrl1 = urlParams.get('audioDataUrl1');
+        const audioDataUrl2 = urlParams.get('audioDataUrl2');
+        const audioUrl1 = decodeURIComponent(audioDataUrl1);
+        const audioUrl2 = decodeURIComponent(audioDataUrl2);
+        // const value = urlParams.get('value');
+        Evaluation(audioUrl1,audioUrl2);
+    </script>
+
+</body>
+</html>

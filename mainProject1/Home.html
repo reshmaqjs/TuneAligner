@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <title>
+            TuneAlignerHomePage
+        </title>
+        <script src="https://cdn.jsdelivr.net/npm/meyda@4.1.0/dist/browser/meyda.min.js"></script>
+        <!-- <script src="eval.js"></script> -->
+    </head>
+<body>
+    <!-- <py-script>
+   Add python data
+    </py-script> -->
+    <center>
+<h1>TUNE ALIGNER</h1>
+
+    Input Reference audio 
+        <button onclick="printrefrecord()">Record</button>
+        <button onclick="printrefupload()">Upload</button>
+    <br>
+    <div id="refWindow">
+     
+    </div>
+    <div id="refWindow2">
+
+    </div>
+    <br>
+    Input Test audio
+    <button onclick="printtesrecord()">Record</button>
+    <button onclick="printtesupload()">Upload</button>
+<br>
+<div id="tesWindow">
+
+</div>
+<div id="tesWindow2">
+
+</div>
+<br>
+    <br>
+    <br>
+    <button id="eval" onclick="evaluaterefTest()">Evaluate</button>
+</center>
+<script src="home1.js">
+</script>
+</body>
+</html>
