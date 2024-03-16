@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request
+from flask_wtf import FlaskForm
+from wtforms import FileField
 
 app =Flask(__name__)
 
@@ -9,9 +11,9 @@ def index():
 @app.route('/create_file',methods=['POST'])
 def create_file():
     if request.method=='POST':
-        with open(f"{request.form.get('name')}.txt","w") as f:
-            f.write('FILE CREATED AND SUCCESSFULL POST REQUEST!')
-        # print(request.form)
+        with open(f"{request.form.get('name1')}.txt","w") as f:
+            f.write('Evaluation Done')
+        print(request.form.get('name1'))
         return('',204)
 
 if __name__=='__main__':
