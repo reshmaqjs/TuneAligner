@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>First Title</title>
+</head>
+<body>
+    <textarea id="firstbox">Edit Me</textarea>
+    <button onclick="performPost()">Perform POST!</button>
+    First Page
+</body>
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script>
+function performPost(){
+    var x='illa';
+//   console.log("IT WORKS!")
+$.ajax({
+    type: "POST",
+    url: "{{url_for('create_file')}}",
+    data: {"name":x},
+})
+}
+</script>
+</html>
