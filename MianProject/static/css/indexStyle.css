@@ -1,0 +1,19 @@
+body{
+    background-color: rgb(154, 99, 180);
+    font-size:x-large;
+}
+#div2{
+    width:75%;
+    /* height: 100%; */
+    float: left;
+    /* background:  #81a2e8; */
+}    
+#rec2{
+    width:25%;
+    /* height:100%; */
+    float:right;
+    /* background: #3fa972; */
+    }
+#windowmain{
+    font-size:larger;
+}

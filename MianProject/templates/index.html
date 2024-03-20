@@ -5,24 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOME</title>
-    <!-- <script src="inputs.js"></script> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/indexStyle.css') }}">
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 </head>
 <body>
     <center>
-        <h1>TUNE ALIGNER</h1>
-
-    Input Reference audio 
+        <h2>TUNE ALIGNER</h2>
+        <div id="windowmain">
+<br>
+       <div id="rec2">
+        <br><br><br>
+        Record   <button id="startRecordtest" onclick="startRecordTest()">Start Recording</button>
+            </div>
+      <div id="div2">
     <form method="POST" enctype="multipart/form-data">
         {{form.hidden_tag()}}
+        <br><br>
+        Input Reference Audio 
         {{form.file1()}}
+        <br><br>
+        Input Test Audio 
         {{form.file2()}}
+        <br>
+        <br>
+        <br>
         {{form.submit()}}
     </form>
-
+    </div>
+</div>
 </center>
 </body>
-<script>
 
-</script>
+<script type="text/javascript" src="{{ url_for('static', filename='script/inputs.js') }}"></script>
+
+
 </html>

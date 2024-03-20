@@ -15,6 +15,8 @@ def FindNote(pitch_value):
         10:'N',
         11:'n'
     }
+    if(pitchVal==0):
+        return "00"
     note_number=round(12*(log2(pitchVal)-log2(261))) % 12
     octave= 4 + (round(12*(log2(pitchVal)-log2(261))) // 12)
     return note_names[note_number]+str(octave)

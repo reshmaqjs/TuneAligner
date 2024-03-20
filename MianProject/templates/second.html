@@ -4,9 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/page2Style.css') }}">
 </head>
 <body>
-    Hiiiiiiiiiiiiiiiii
+    <h2>Note-Time sequence of inputs</h2>
+    <br>
     
+    <div>Reference Sequence</div> <p>{{ data.refseq }}</p>
+    <br>
+    <div>Test Sequence </div><p>{{ data.testseq }}</p>
+    <br><br>
+    
+    <h2>Aligned Note-Time sequence </h2>
+    <div>Reference Note-Time Sequence</div> <p>{{ data.AlignedRefSeq }}</p>
+    <br>
+    <div>Test Note-Time Sequence</div> <p>{{ data.AlignedTestSeq }}</p>
+    <br><br>
+
+    <div id="div3">
+    <h2>Aligned Note sequence </h2>
+    <div>Reference Sequence </div><p>{{ data.refalignNotes }}</p>
+    <br>
+   <div>Test Sequence</div> <p>{{ data.testalinNotes }}</p>
+    <br><br>
+    <center>
+    <h2 id="mark"> Match percentage {{ data.percentscore }}</h2>
+    </center>
+</div>
+
+<br>
+<br><br><br>
+<br>
+<br>
 </body>
 </html>
