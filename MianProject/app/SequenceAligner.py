@@ -33,7 +33,7 @@ def myDTW(r,t):
     #back tracking
     while(1==1):
         if raw!=0 and col!=0:
-            if mat[raw][col]==mat[raw-1][col-1]+match and seq1[col-1][0:1]==seq2[raw-1][0:1]: #'''and (not(col==1 and raw!=1) and not(col!=1 and raw==1))'''
+            if mat[raw][col]==mat[raw-1][col-1]+match and seq1[col-1][0:2]==seq2[raw-1][0:2]: #'''and (not(col==1 and raw!=1) and not(col!=1 and raw==1))'''
                 backmove.append("d")
                 raw=raw-1
                 col=col-1            
@@ -94,15 +94,15 @@ def Make_DiffList(inc,dec,seq):
     temp2=seq
     for i in range(inc):
         print (i)
-        temp1=[ [j[0],int(j[1])+1,j[2]] for j in temp1]
+        temp1=[ [j[0],str(int(j[1])+1),j[2]] for j in temp1]
         list_of_lists.append(temp1)
     for i in range(dec):
-        temp2=[ [j[0],int(j[1])-1,j[2]] for j in temp2]
-        list_of_lists.append(temp1)
+        temp2=[ [j[0],str(int(j[1])-1),j[2]] for j in temp2]
+        list_of_lists.append(temp2)
     return list_of_lists
 
 def AlignBest(ref,test):
-    print("working.....")
+    print("Alignment working.....")
     refnew=[ [i[0][0],i[0][1],i[1]] for i in ref]
     testnew=[ [i[0][0],i[0][1],i[1]] for i in test]
     print(refnew)
@@ -116,19 +116,22 @@ def AlignBest(ref,test):
     tminOctave=int(min(refOctaves))
     increments=rmaxOctave-tminOctave
     decrements=tmaxOctave-rminOctave
-    print(rmaxOctave,"  ",rminOctave,"  ",tminOctave,"  ",tmaxOctave,"  ",increments,"  ",decrements)
+    print("rmaxOctave ",rmaxOctave,"  rminOctave ",rminOctave,"  tminOctave ",tminOctave,"  tmaxOctave ",tminOctave,"  increments ",increments,"  decrements ",decrements)
     ListOf_Test_Seq_List = Make_DiffList(increments,decrements,testnew)
-    print(ListOf_Test_Seq_List)
+    print("\nListOf_Test_Seq_List : ",ListOf_Test_Seq_List)
     Best_similaritymat, Best_align_s1, Best_align_s2, Best_score = myDTW( refnew, ListOf_Test_Seq_List[0])
 
-    for k in ListOf_Test_Seq_List:
-        similaritymat,align_s1,align_s2,score=myDTW(refnew,k)
-        if Best_score < score:
+    for k in range (len(ListOf_Test_Seq_List)):
+        similaritymat,align_s1,align_s2,score=myDTW(refnew,ListOf_Test_Seq_List[k])
+        print("score",score)
+        print(align_s1," \n",align_s2)
+        if (Best_score < score):
+            print("y")
             Best_similaritymat,Best_align_s1,Best_align_s2,Best_score=similaritymat,align_s1,align_s2,score
-
-    print(Best_similaritymat)
-    print (Best_align_s1)
+            
+    print("\nSimilarity matrix" ,Best_similaritymat)
+    print ("\nAlignment of reference and test sequences\n",Best_align_s1)
     print (Best_align_s2)
-    print (Best_score)
+    print ("\n Score \n",Best_score)
     AlinPercent=100*(Best_score/len(Best_align_s1))
     return Best_align_s1,Best_align_s2,AlinPercent

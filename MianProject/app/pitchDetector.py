@@ -36,7 +36,7 @@ def segment_audio_and_detect_pitch(y,sr):
     segment_pitches = []
     k=0
     for i in range(len(onsets)):
-        if (onset_times[i] > onset_times[k]+0.3) or i==0:         
+        if (onset_times[i] > onset_times[k]+0.25) or i==0:         
             start_sample = 0 if i == 0 else onsets[i]
             end_sample = int((len(y)+onsets[i])/2) if i == len(onsets) - 1 else onsets[i+1]
             segment = y[start_sample:end_sample]
