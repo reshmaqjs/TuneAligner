@@ -3,25 +3,25 @@ body{
     font-size:large;
 }
 #div2{
-    width:55%;
+    width:80%;
     /* height: 100%; */
-    float: left;
+    float: right;
     /* background:  #81a2e8; */
 }    
 #rec2{
-    width:45%;
+    width:20%;
     /* height:100%; */
-    float:right;
+    float:left;
     /* background: #3fa972; */
     }
 #divfirst{
-    width:58%;
+    width:41%;
     /* height: 100%; */
     float: left;
     /* background:  #81a2e8; */
 }
 #divsecond{
-    width:42%;
+    width:59%;
     /* height:100%; */
     float:right;
     /* background: #3fa972; */
@@ -29,6 +29,7 @@ body{
 
 #windowmain{
     width:100%;
+    height:420px;
     font-size:larger;
 }
 #mark{

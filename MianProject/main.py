@@ -68,6 +68,8 @@ def start_recording(filename):
     wf.setframerate(RATE)
     wf.writeframes(b''.join(frames))
     wf.close()
+    savereftoaudio()
+    savetesttoaudio()
 @app.route('/recordtest') #, methods=['POST']
 def recordtest():
     global recording
@@ -175,9 +177,9 @@ def home():
                    filename2='test.wav'
                file2.save(os.path.join(os.path.abspath(os.path.dirname(__file__)),app.config['UPLOAD_FOLDER'],secure_filename(filename2)))
            print(refFlag,",",testFlag)
-           refseq,testseq,AlignedRefSeq,AlignedTestSeq,percentscore=evaluate(refFlag,testFlag)
+           refseq,testseq,AlignedRefSeq,AlignedTestSeq,percentscore,timesref,timestest=evaluate(refFlag,testFlag)
            refalignNotes,testalinNotes=Findnotes(AlignedRefSeq,AlignedTestSeq)
-           data = {'refseq': refseq, 'testseq': testseq,'AlignedRefSeq':AlignedRefSeq,'AlignedTestSeq':AlignedTestSeq,'refalignNotes':refalignNotes,'testalinNotes':testalinNotes,'percentscore':percentscore}
+           data = {'refseq': refseq, 'testseq': testseq,'AlignedRefSeq':AlignedRefSeq,'AlignedTestSeq':AlignedTestSeq,'refalignNotes':refalignNotes,'testalinNotes':testalinNotes,'percentscore':percentscore,'timesref':timesref,'timestest':timestest}
         #    return render_template('second.html',data=data)  
            return render_template('index.html',form=form,data=data)
     data = {'refseq': "", 'testseq': "",'AlignedRefSeq':"",'AlignedTestSeq':"",'refalignNotes':"",'testalinNotes':"",'percentscore':""}  
@@ -230,7 +232,7 @@ def evaluate(rf,tf):
     print(" ")
     print(" ")
     ref_align_seq,test_align_seq,percentOfMatch=AlignBest(note_time_sequence_ref,note_time_sequence_test)
-    return note_time_sequence_ref,note_time_sequence_test,ref_align_seq,test_align_seq,percentOfMatch
+    return note_time_sequence_ref,note_time_sequence_test,ref_align_seq,test_align_seq,percentOfMatch,onsettime_ref,onsettime_test
 
 if __name__=='__main__':
     app.run(

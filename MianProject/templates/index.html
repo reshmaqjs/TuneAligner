@@ -12,6 +12,7 @@
     <center>
         <h1>TUNE ALIGNER</h1>
     </center>
+    <br>
         <div id="windowmain">
 <br>
        <div id="rec2">
@@ -21,6 +22,8 @@
         <br><br><br>
         <br><br><br>
         <br><br><br>
+        <br>
+        
 
         </div>
       <div id="div2">
@@ -34,7 +37,7 @@
         </tr>
 
         <tr>
-        <td></td><td><input type="text" name="refname" id="refname" size="5"> <br><br><br> <br><br>
+        <td></td><td><input type="text" name="refname" id="refname" size="5"> <br><br><br> <br><br><br><br>
         </td>
         </tr>
 
@@ -54,10 +57,10 @@
     </div>
     <div id="divsecond">
     <table>
-    <tr><td><br><button id="refplay">play</button><button style="display: none;" id="refplaystop">stop</button><br><br></td><td>Record Reference Audio<br><br><br><br><br><br></td><td><button id="record-btn1">Record</button>
+    <tr><td style="width:8ch;"><br><button id="refplay">play</button><button style="display: none;" id="refplaystop">stop</button><br><br></td><td>Record Reference Audio<br><br><br><br><br><br></td><td><button id="record-btn1">Record</button>
         <button id="stop-btn1" style="display: none;">Stop</button><br><br><br><br><br><br></td></tr>
-        <tr><td></td><td></td></tr>
-    <tr><td><br><button id="testplay">play</button><button style="display: none;" id="testplaystop">stop</button></td><td>Record Test Audio<br><br><br><br></td><td><button id="record-btn2">Record</button>
+        <tr><td ><br><br></td><td></td></tr>
+    <tr><td ><br><button id="testplay">play</button><button style="display: none;" id="testplaystop">stop</button></td><td>Record Test Audio<br><br><br><br></td><td><button id="record-btn2">Record</button>
         <button id="stop-btn2" style="display: none;">Stop</button><br><br><br><br></td></tr>
     </table>
     </div>
@@ -78,18 +81,25 @@
     <br><br>
     
     <h2 id="part23">Aligned Note-Time sequence </h2>
-    <div id="part24">Reference Note-Time Sequence</div> <p>{{ data.AlignedRefSeq }}</p>
+    <div id="part24">Reference Note-Time Sequence</div> <p id="reftimeseq">{{ data.AlignedRefSeq }}</p>
     <br>
-    <div id="part25">Test Note-Time Sequence</div> <p>{{ data.AlignedTestSeq }}</p>
+    <div id="part25">Test Note-Time Sequence</div> <p id="testtimeseq">{{ data.AlignedTestSeq }}</p>
     <br><br>
-
+    <div id="reftimes">{{ data.timesref }}</div>
+    <div id="testtimes">{{ data.timestest }}</div>
     <div id="div3">
     <h2 id="part26">Aligned Note sequence </h2>
     <div id="part27">Reference Sequence </div><p id="refsequence">{{ data.refalignNotes }}</p>
     <div id="newrf"></div>
+    <div id="refalignplay">
+
+    </div>
     <br>
    <div id="part28">Test Sequence</div> <p id="testsequence"> {{ data.testalinNotes }}</p>
    <div id="newts"></div>
+   <div id="testalignplay">
+        
+   </div>
     <br><br>
     <center>
     <h2 id="mark">
@@ -115,9 +125,8 @@
         document.getElementById('part29').innerText="";
     }
     else{
-        var reff=document.getElementById('refsequence').innerText;
-        var testt=document.getElementById('testsequence').innerText;
-        alert(reff+" "+testt);
+        var reff=document.getElementById('reftimeseq').innerText;
+        var testt=document.getElementById('testtimeseq').innerText;
         document.getElementById('refsequence').innerText="";
         document.getElementById('testsequence').innerText="";
         resultPlay(reff,testt);
@@ -215,7 +224,6 @@
    submitfield.addEventListener('click', function(event) {
     var refvals=document.getElementsByName("refname")[0].value;
    var tesvals= document.getElementsByName("testname")[0].value;
-            alert(refvals+"  "+tesvals);
             if (refvals=="" || tesvals=="") {
                 event.preventDefault(); // Prevent form submission
                 alert('Please provide both inputs');
@@ -258,8 +266,7 @@
             recordBtn1.style.display = 'inline';
             recording = false;
             await fetch('/stop');
-            await fetch('/savereftoaudio');
-            alert("running");
+           // await fetch('/savereftoaudio');
 
         });
         recordBtn2.addEventListener('click', async () => {
@@ -278,8 +285,8 @@
             recordBtn2.style.display = 'inline';
             recording = false;
             await fetch('/stop');
-            await fetch('/savetesttoaudio');
-            alert("running");
+            //await fetch('/savetesttoaudio');
+
         });
 
 
