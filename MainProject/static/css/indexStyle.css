@@ -1,0 +1,114 @@
+body{
+    background: radial-gradient(circle, rgba(26,17,69,1) 16%, rgba(11,43,53,1) 32%, rgba(29,7,46,1) 67%, rgba(29,10,49,1) 84%);
+    font-size:large;
+}
+#div2{
+     /* height: 100%;  */
+     height:530px;
+    width: 80%;
+    background:  linear-gradient(0deg, rgba(4,42,34,1) 0%, rgba(3,28,16,1) 14%, rgba(45,29,61,1) 15%, rgba(3,22,13,1) 16%, rgba(19,5,33,1) 33%, rgba(18,4,33,1) 55%, rgba(51,32,64,1) 56%, rgba(2,23,17,1) 57%, rgba(24,5,38,1) 79%);
+    /* background:  #81a2e8; */   
+}    
+
+#divfirst{
+    width:42%;
+    /* height: 100%; */
+    float: left;
+    /* background:  #81a2e8; */
+}
+#divsecond{
+    width:58%;
+    /* height:100%; */
+    float:right;
+    /* background: #3fa972; */
+}
+
+#windowmain{
+    
+    width:70%;   
+    /* background: linear-gradient(0deg, rgba(12,51,63,1) 14%, rgba(26,17,69,1) 22%, rgba(30,9,70,1) 59%, rgba(12,51,63,1) 60%); */
+    font-size:larger;
+   
+}
+#mark{
+    color: rgb(119, 231, 178);
+    font-size:x-large;
+}
+#ti1{
+/* background-color: aquamarine;*/
+color: white;
+} 
+#ti2{
+/*background-color: bisque;*/
+color: white;
+}
+#rftable{
+column-width: 10ch;
+
+}
+#tstable{
+    column-width: 3ch;
+}
+#newts{
+    overflow-x: auto;
+}
+#resultTable{
+    background-color:#0b0314 ;
+    white-space: nowrap;
+}
+#btnShowNotime{
+    background-color:#19082d ;
+    color: white;
+    border-color: white;
+    border-width:2px;
+}
+#btnHideNotime{
+    background-color:#19082d ;
+    color: white;
+    border-color: white;
+    border-width: 2px;
+
+}
+#btnShowAlignNotime{
+    background-color:#19082d ;
+    color: white;
+    border-color: white;
+    border-width: 2px;
+}
+#btnHideAlignNotime{
+    background-color:#19082d ;
+    color: white;
+    border-color: white;
+    border-width: 2px;
+}
+#btnShowAlignNote{
+    background-color:#19082d ;
+    color: white;
+    border-color: white;
+    border-width: 2px;
+}
+#btnHideAlignNote{
+    background-color:#19082d ;
+    color: white;
+    border-color: white;
+    border-width: 2px;
+}
+
+#showNoteTime{
+    background-color:#19082d ;
+    color: white;
+    border-color: white;
+    border-width: 2px;
+}
+#showAlignNoteTime{
+    background-color:#19082d ;
+    color: white;
+    border-color: white;
+    border-width: 2px;
+}
+#showAlignNote{
+    background-color:#19082d ;
+    color: white;
+    border-color: white;
+    border-width: 2px;
+}
